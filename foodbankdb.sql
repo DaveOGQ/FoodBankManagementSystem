@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.34, for macos13 (arm64)
 --
--- Host: 127.0.0.1    Database: foodbankdb
+-- Host: localhost    Database: foodbankdb
 -- ------------------------------------------------------
--- Server version	8.0.35
+-- Server version	8.2.0
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -43,7 +43,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES ('BobGaines@gmail.com','Bob','Gaines','Mon-09:00-17:00,Tue-09:00-17:00',1,0,'TedBarnes@gmail.com'),('SallyWon@gmail.com','Sally','Won','Tues-08:00-18:00',0,1,'TedBarnes@gmail.com'),('TedBarnes@gmail.com','Ted','Barnes','Mon-09:00-17:00,Tue-09:00-17:00',1,0,NULL);
+INSERT INTO `admin` VALUES ('BobGaines@gmail.com','Bob','Gaines','Mon-09:00-17:00,Tue-09:00-17:00',1,0,'TedBarnes@gmail.com'),('JackBlack@gmail.com','Jack','Black','Wed-12:00-14:00',0,1,'BobGaines@gmail.com'),('SallyWon@gmail.com','Sally','Won','Tues-08:00-18:00',0,1,'TedBarnes@gmail.com'),('TedBarnes@gmail.com','Ted','Barnes','Mon-09:00-17:00,Tue-09:00-17:00',1,0,NULL);
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,7 +71,7 @@ CREATE TABLE `donation` (
 
 LOCK TABLES `donation` WRITE;
 /*!40000 ALTER TABLE `donation` DISABLE KEYS */;
-INSERT INTO `donation` VALUES ('DonaldFrump@gmail.com','Dad Cookies','2023-12-01'),('DonaldFrump@gmail.com','Dad Cookies','2023-12-05'),('DonaldFrump@gmail.com','Ultra Comfort Toilet Paper','2023-12-01');
+INSERT INTO `donation` VALUES ('DonaldFrump@gmail.com','Dad Cookies','2023-12-01'),('DonaldFrump@gmail.com','Dad Cookies','2023-12-05'),('BonnieClyde@gmail.com','Ultra Comfort Toilet Paper','2023-12-10'),('DonaldFrump@gmail.com','Ultra Comfort Toilet Paper','2023-12-01'),('BonnieClyde@gmail.com','Ultra Soft Toilet Paper','2023-12-10');
 /*!40000 ALTER TABLE `donation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,7 +100,7 @@ CREATE TABLE `item` (
 
 LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
-INSERT INTO `item` VALUES ('Dad Cookies',35,'Shelf','Mondelez',1,0),('Kellogs Corn Flakes',13,'Shelf','Kellogs',1,0),('Ultra Comfort Toilet Paper',2,'Shelf','Charmin',0,1),('Ultra Soft Toilet Paper',5,'Shelf','Charmin',0,1);
+INSERT INTO `item` VALUES ('Dad Cookies',35,'Shelf','Mondelez',1,0),('Kellogs Corn Flakes',13,'Shelf','Kellogs',1,0),('Ultra Comfort Toilet Paper',0,'Shelf','Charmin',0,1),('Ultra Soft Toilet Paper',0,'Shelf','Charmin',0,1);
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +131,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES ('3d5af866b4','2023-12-30','SallyWon@gmail.com','0000000001');
+INSERT INTO `order` VALUES ('2feb2edee1','2023-12-14','BobGaines@gmail.com','0000000001'),('3d5af866b4','2023-12-29','SallyWon@gmail.com','0000000001');
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,7 +158,7 @@ CREATE TABLE `order_contains` (
 
 LOCK TABLES `order_contains` WRITE;
 /*!40000 ALTER TABLE `order_contains` DISABLE KEYS */;
-INSERT INTO `order_contains` VALUES ('3d5af866b4','Dad Cookies'),('3d5af866b4','Kellogs Corn Flakes'),('3d5af866b4','Ultra Comfort Toilet Paper');
+INSERT INTO `order_contains` VALUES ('3d5af866b4','Dad Cookies'),('3d5af866b4','Kellogs Corn Flakes'),('2feb2edee1','Ultra Comfort Toilet Paper'),('3d5af866b4','Ultra Comfort Toilet Paper'),('2feb2edee1','Ultra Soft Toilet Paper');
 /*!40000 ALTER TABLE `order_contains` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,7 +188,7 @@ CREATE TABLE `request` (
 
 LOCK TABLES `request` WRITE;
 /*!40000 ALTER TABLE `request` DISABLE KEYS */;
-INSERT INTO `request` VALUES ('be68305bb3',NULL,'johndoe@gmail.com',NULL,'2023-12-10');
+INSERT INTO `request` VALUES ('1fd726c1e9','BobGaines@gmail.com','TomJerry@gmail.com','2023-12-11','2023-12-08'),('4b626bfdac',NULL,'johndoe@gmail.com',NULL,'2023-12-11'),('4ff3cf4436',NULL,'TylerDurden@gmail.com',NULL,'2023-12-18'),('be68305bb3','BobGaines@gmail.com','johndoe@gmail.com','2023-12-10','2023-12-10');
 /*!40000 ALTER TABLE `request` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -215,7 +215,7 @@ CREATE TABLE `request_contains` (
 
 LOCK TABLES `request_contains` WRITE;
 /*!40000 ALTER TABLE `request_contains` DISABLE KEYS */;
-INSERT INTO `request_contains` VALUES ('be68305bb3','Kellogs Corn Flakes'),('be68305bb3','Ultra Comfort Toilet Paper');
+INSERT INTO `request_contains` VALUES ('1fd726c1e9','Dad Cookies'),('4b626bfdac','Dad Cookies'),('4ff3cf4436','Dad Cookies'),('1fd726c1e9','Kellogs Corn Flakes'),('4ff3cf4436','Kellogs Corn Flakes'),('be68305bb3','Kellogs Corn Flakes'),('4b626bfdac','Ultra Comfort Toilet Paper'),('be68305bb3','Ultra Comfort Toilet Paper'),('1fd726c1e9','Ultra Soft Toilet Paper');
 /*!40000 ALTER TABLE `request_contains` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -274,7 +274,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('BonnieClyde@gmail.com','Bonnie','Clyde',0,NULL,0,NULL,1),('ChiefKeef@gmail.com','Chief','Keef',0,NULL,0,NULL,1),('DonaldFrump@gmail.com','Donald','Frump',0,NULL,NULL,'SallyWon@gmail.com',1),('JaneDoe@gmail.com','Jane','Doe',1,'12,Evergarden,Road',3,'TedBarnes@gmail.com',0),('JimJong@gmail.com','Jim','Jong',0,NULL,0,NULL,1),('JohnDoe@gmail.com','John','Doe',1,'12,Evergarden,Road',2,'SallyWon@gmail.com',0),('MattLow@gmail.com','Matt','Low',0,NULL,0,NULL,1),('TomJerry@gmail.com','Tom','Jerry',1,'15,Grandville,Crescent',0,NULL,0);
+INSERT INTO `user` VALUES ('BonnieClyde@gmail.com','Bonnie','Clyde',0,NULL,0,'BobGaines@gmail.com',1),('ChiefKeef@gmail.com','Chief','Keef',0,NULL,0,NULL,1),('DonaldFrump@gmail.com','Donald','Frump',0,NULL,NULL,'SallyWon@gmail.com',1),('JaneDoe@gmail.com','Jane','Doe',1,'12,Evergarden,Road',3,'TedBarnes@gmail.com',0),('JimJong@gmail.com','Jim','Jong',0,NULL,0,NULL,1),('JohnDoe@gmail.com','John','Doe',1,'12,Evergarden,Road',2,'SallyWon@gmail.com',0),('MattLow@gmail.com','Matt','Low',0,NULL,0,NULL,1),('TomJerry@gmail.com','Tom','Jerry',1,'15,Grandville,Crescent',0,NULL,0),('TylerDurden@gmail.com','Tyler','Durden',1,'420 Grove St',0,NULL,0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -287,4 +287,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-10 14:27:11
+-- Dump completed on 2023-12-17 14:14:05
